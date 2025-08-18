@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .planet{
+            width:250px;
+            height: 250px;
+            background-color: orange;
+            position:relative;
+            margin-left: 500px;
+            margin-top: 200px;
+            background:linear-gradient(to bottom,darkgoldenrod,#141414);
+        }
+        .sun{
+            width:200px;
+            height: 200px;
+            background-color:yellow;
+            position:absolute;
+            top:25px;
+            left: 25px;
+            border-radius: 83%;
+            animation:move 3s infinite alternate-reverse;
+        }
+        @keyframes move{
+            0%{
+                box-shadow: 30px 10px gold;
+            }
+            100%{
+                box-shadow:0-15px 10px 10px gold,0 0 70px 40px gold ;
+            }
+        }
+        body{
+            background-color: black;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+    <div>
+       <div class="planet">
+          <div class="sun"></div> 
+       </div>
+    </div> 
+</body>
+</html>
