@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header{
+            display:flex;
+            justify-content: space-around;
+            align-items: center;
+            padding:5px;
+            background: white;
+            margin-left: 190px;
+            margin-right: 50px;
+        }
+        header a{
+            color:black;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 20px 50px;
+            border-radius: 10px;
+        }
+        header a:hover{
+            background-color:orange;
+            color:white;
+        }
+        header a.box{
+            background-color: orange;
+            color:white;
+        }
+        .view{
+            background: url("http://wallpapercave.com/wp/sM9S73C.jpg") no-repeat  center center/cover;
+            color:white;
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            text-align: left;
+            height:100vh;
+            margin-bottom: 90px;
+            width:100%;
+        }
+        .view h1{
+            font-size: 4em;
+            margin-left: 90px;
+            line-height: 1.1;
+            margin-bottom: 8px;
+        }
+        .view p{
+            font-size: 2em;
+            margin-left: 90px;
+            line-height: 1.4;
+            margin-top: 0;
+        }
+        .search-box{
+            display:flex;
+            margin-left: 90px;
+            margin-bottom: 60px;
+        }
+        .search-box input{
+            border:none;
+            padding:20px;
+            width:250px;
+            border-radius: 5px 0 0 5px;
+            font-size: 20px;
+        }
+        .search-box button{
+            border:none;
+            padding: 20px 35px;
+            color:white;
+            font-weight: bold;
+            background: orange;
+            border-radius: 0 5px 5px 0;
+        }
+        .search-box button:hover{
+            background: darkorange;
+        }
+        .arrow{
+            width:50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: orange;
+            border:none;
+            color:white;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            top: 12px;
+            left:30px;
+            font-weight: bold;
+            transition:transform 0.2s;
+            cursor: pointer;
+            position:relative;
+        }
+        .arrow:hover{
+            background-color: darkorange;
+        }
+        .arrow1{
+            width:50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: orange;
+            border:none;
+            color:white;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            top: -25px;
+            left:1240px;
+            font-weight: bold;
+            transition:transform 0.2s;
+            cursor:pointer;
+            position: relative;
+        }
+        .arrow1:hover{
+            background-color: darkorange;
+        }
+        .container{
+            display:flex;
+            align-items: start; 
+            margin-left: 150px;
+            justify-content: start;
+            padding:60px 30px;
+            margin-bottom: 90px;
+            width:100%;
+        }                   
+        .circle{
+            position: absolute;
+            border: 13px solid orange;  
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+        .circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+        }
+        .circle.top{
+            top:20px;
+            left: 80px;
+            z-index: 1;
+            width:350px;
+            height:350px;
+        }
+        .circle.bottom{
+            top:200px;
+            z-index: 2;
+            height: 200px;
+            width:200px;
+            left:-26%;
+        }
+        .tags{
+            width:400px;
+            margin-left: 60px;
+        }
+        .tags h1{
+            font-size: 2em;
+            color:black;
+            margin-bottom: 20px;
+        }
+        .tags p{
+            color:black;
+            margin-bottom: 28px;
+            font-size: 1.1em;
+        }
+        .sai{
+            position:relative;
+            flex-shrink: 0;
+            width:450px;
+            height: 360px;
+            margin-right: 50px;
+        }
+        .parent h1{
+            margin-left: 500px;
+            font-size: 2.5em;
+        }
+        .main1 h1{
+            margin-left: 450px;
+            font-size: 2em; 
+        }
+        .child h1{
+            margin-left: 450px;
+            font-size: 40px;
+            font-weight: bold;  
+        }
+        .child p{
+            margin-left: 400px;
+            font-size: 20px;
+            font-weight: bold;  
+        }
+        .card{
+            display:flex;
+            width:85%;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0px 0px 16px lightgrey;
+            margin:40px auto;
+            transition: transform 0.3s ease;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 80px;
+        }
+        .card:hover{
+            transform: translateY(-5px);
+        }
+        .card img{
+            width:50%;
+            height:350px;
+            display:block;
+        }
+        .content{
+            padding:20px;
+            width:50%;
+        }
+        .content h1{
+            margin:10px 0;
+            font-size: 30px;
+            font-weight: bold;
+            color:#333;
+        }
+        .price{
+            font-size: 30px;
+            font-weight: bold;
+            display:flex;
+            color:orange;
+            margin-right: 10px;
+        }
+        .price-btn h4{
+            font-size: 20px;
+            color:black;
+            margin-right: 100px;
+        }
+        .price-btn{
+            display:flex;
+            align-items: center;
+        }
+        .content p{
+            font-size: 20px;
+            color: black;
+            margin:8px 0 15px;
+        }
+        .contact{
+            display:flex;
+            width:85%;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0px 0px 16px lightgrey;
+            margin:40px auto;
+            transition: transform 0.3s ease;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 80px;
+        }
+        .contact:hover{
+            transform: translateY(-5px);
+        }
+        .contact img{
+            width:50%;
+            height:350px;
+            display:block;
+        }
+        .contact1{
+            padding:20px;
+            width:50%;
+        }
+        .contact1 h1{
+            margin:10px 0;
+            font-size: 30px;
+            font-weight: bold;
+            color:#333;
+        }
+        .contact3{
+            font-size: 30px;
+            font-weight: bold;
+            display:flex;
+            color:orange;
+            margin-right: 10px;
+        }
+        .contact2 h4{
+            font-size: 20px;
+            color:black;
+            margin-right: 100px;
+        }
+        .contact2{
+            display:flex;
+            align-items: center;
+        }
+        .contact1 p{
+            font-size: 20px;
+            color: black;
+            margin:8px 0 15px;
+        }
+        .contact4{
+            background: orange;
+            color:white;
+            padding:7px 12px;
+            border-radius: 5px;
+            font-size: 20px;
+            text-decoration: none;
+            transition: 0.3s ease;
+            cursor:pointer;
+        }
+        .contact4:hover{
+            background: black;
+        }
+         .post{
+            display:flex;
+            width:85%;
+            border-radius: 12px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0px 0px 16px lightgrey;
+            margin:40px auto;
+            transition: transform 0.3s ease;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 80px;
+        }
+        .post:hover{
+            transform: translateY(-5px);
+        }
+        .post img{
+            width:50%;
+            height:350px;
+            display:block;
+        }
+        .post1{
+            padding:20px;
+            width:50%;
+        }
+        .post1 h1{
+            margin:10px 0;
+            font-size: 30px;
+            font-weight: bold;
+            color:#333;
+        }
+        .post3{
+            font-size: 30px;
+            font-weight: bold;
+            display:flex;
+            color:orange;
+            margin-right: 10px;
+        }
+        .post2 h4{
+            font-size: 20px;
+            color:black;
+            margin-right: 100px;
+        }
+        .post2{
+            display:flex;
+            align-items: center;
+        }
+        .post1 p{
+            font-size: 20px;
+            color: black;
+            margin:8px 0 15px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            background-color: #f7a600;
+            padding: 20px;
+            margin-bottom: 90px;
+        }
+        .stat {
+            text-align: center;
+            color: #fff; 
+        }
+        .stat1 {
+            text-align: center;
+            color: #fff; 
+        }
+        .stat2 {
+            text-align: center;
+            color: #fff; 
+        }
+        .stat3 {
+            text-align: center;
+            color: #fff; 
+        }
+        .stat-icon {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .stat-label {
+            font-size: 16px;
+        }
+        .stat>img{
+            width:70px;
+            height:40px;
+        }
+        .stat1>img{
+            width:70px;
+            height:40px;
+        }
+        .stat2>img{
+            width:70px;
+            height:40px;
+        }
+        .stat3>img{
+            width:70px;
+            height:40px;
+        }
+        .main{
+            display:flex;
+            gap:20px;
+            justify-content: center;
+            margin:20px;
+            margin-bottom: 90px;
+        }
+        .parent1{
+            border:1px solid lightblue;
+            border-radius: 6px;
+            overflow: hidden;
+            text-align: center;
+            background: white;
+            box-shadow: 0 2px 6px lightgrey;
+            width:400px;
+            height: 500px;
+        }
+        .parent1 img{
+            width:100%;
+            height:300px;
+            object-fit: cover;
+        }
+        .parent1 h3{
+            margin:10px 0;
+        }
+        .parent1 p{
+            font-size: 14px;
+            padding:0 10px;
+            color:grey;
+        }
+        .parent2{
+            background: orange;
+            color:white;
+            padding:8px;
+            font-weight: bold;
+        }
+        .parent3{
+            margin:12px 0;
+            padding:8px 12px;
+            background: orange;
+            color:white;
+            text-decoration: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .icon{
+            padding:8px 12px;
+            text-decoration: none;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        .icon:hover{
+            background: orange;
+        }
+        .parent3:hover{
+            background: grey;
+        }
+        .parent2:hover{
+            background: white;
+            color:black;
+        }
+        .contact-form {
+           background-color: #000;
+           color: #fff;
+           padding: 20px;
+           text-align: center;
+        }
+        .contact-form h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: transparent;
+            border: none;
+            border-bottom: 1px solid #fff;
+            color: #fff;
+            outline: none;
+        }
+        .contact-form textarea {
+            height: 60px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .send-btn {
+            border: 2px solid orange;
+            padding: 10px 20px;
+            background-color: transparent;
+            color: #fff;
+            cursor: pointer;
+        }
+        a.map-btn{
+            border: 2px solid orange;
+            padding: 10px 20px;
+            background-color: transparent;
+            color: #fff;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .send-btn:hover {
+            background: orange;
+        }
+        a.map-btn:hover{
+            background:orange ;
+        }
+        .contact-info {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        .social-icons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        .copyright {
+            font-size: 12px;
+            margin-top: 20px;
+        }
+        .object{
+            display: flex;
+            align-items: flex-start;
+            padding: 50px;
+            margin-bottom:90px ;
+            width:1000px;
+            font-weight: bold;
+        }
+        .profile-img img{
+            width:200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            left: 160px;
+            top:-40px;
+            position: relative;
+        }
+        .para{ 
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgb(0,0,0,0.7);
+            padding: 40px 35px 30px 35px;
+            width: 800px;
+        }
+        .para h2{
+            color:#374151;
+            margin-top: 0;
+            margin-bottom: 15px;
+            margin-left: 300px;
+        }
+        .description{
+            font-size: 1.07em;
+            color:#7b879d;
+            margin-left:300px;
+        }
+        .quote{
+            font-size: 3rem;
+            color:orange;
+            text-align: left;
+            margin-left: 500px;
+        }
+        .underline{
+            border-bottom: 6px solid orange;
+            padding-bottom: 2px;
+        }
+        @media screen and (min-width:320px) and (max-width:425px){
+            header{
+               display:flex;
+               justify-content: space-around;
+               align-items: center;
+               padding:5px;
+               background: white;
+               margin-left: 100px;
+               margin-right: 100px;
+               width:1100px;
+            }
+            header a{
+               color:black;
+               text-decoration: none;
+               font-weight: bold;
+               padding: 20px 50px;
+               border-radius: 10px;
+               font-size: 1.5em;
+            }
+            header a:hover{
+               background-color:orange;
+               color:white;
+            }
+            header a.box{
+               background-color: orange;
+               color:white;
+            }
+           .view{
+               background: url("http://wallpapercave.com/wp/sM9S73C.jpg") no-repeat  center center/cover;
+               color:white;
+               display:flex;
+               flex-direction: column;
+               justify-content: center;
+               align-items: flex-start;
+               text-align: left;
+               height:1000px;
+               margin-bottom: 90px;
+               width:1300px;
+            }
+            .view h1{
+               font-size: 6em;
+               margin-left: 90px;
+               line-height: 1.1;
+               margin-bottom: 8px;
+            }
+           .view p{
+              font-size: 3em;
+              margin-left: 90px;
+              line-height: 1.4;
+              margin-top: 0;
+            }
+            .search-box{
+               display:flex;
+               margin-left: 90px;
+               margin-bottom: 60px;
+            }
+            .search-box input{
+               border:none;
+               padding:20px;
+               width:250px;
+               border-radius: 5px 0 0 5px;
+               font-size: 30px;
+            }
+            .search-box button{
+               border:none;
+               padding: 20px 35px;
+               color:white;
+               font-weight: bold;
+               background: orange;
+               border-radius: 0 5px 5px 0;
+            }
+            .search-box button:hover{
+               background: darkorange;
+            }
+            .arrow{
+               width:50px;
+               height: 50px;
+               border-radius: 50%;
+               background-color: orange;
+               border:none;
+               color:white;
+               display:flex;
+               align-items: center;
+               justify-content: center;
+               top: 12px;
+               left:30px;
+               font-weight: bold;
+               transition:transform 0.2s;
+               cursor: pointer;
+               position:relative;
+            }
+            .arrow:hover{
+               background-color: darkorange;
+            }
+           .arrow1{
+               width:50px;
+               height: 50px;
+               border-radius: 50%;
+               background-color: orange;
+               border:none;
+               color:white;
+               display:flex;
+               align-items: center;
+               justify-content: center;
+               top: -25px;
+               left:1100px;
+               font-weight: bold;
+               transition:transform 0.2s;
+               cursor:pointer;
+               position: relative;
+            }
+            .arrow1:hover{
+               background-color: darkorange;
+            }
+            .container{
+               display:flex;
+               align-items: center;
+               margin-left: 150px;
+               justify-content: start;
+               padding:60px 30px;
+               margin-bottom: 90px;
+               flex-direction: column;
+            }                   
+            .circle{
+               position: absolute;
+               border: 13px solid orange;  
+               border-radius: 50%;
+               overflow: hidden;
+               box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            }
+            .circle img {
+               width: 100%;
+               height: 100%;
+               object-fit: cover; 
+            }
+            .circle.top{
+               top:20px;
+               left: 80px;
+               z-index: 1;
+               width:450px;
+               height:450px;
+            }
+            .circle.bottom{
+               top:200px;
+               z-index: 2;
+               height: 300px;
+               width:300px;
+               left:-47%;
+            }
+            .tags{
+               width:900px;
+               margin-left: 700px;
+               height: 100%;
+            }
+            .tags h1{
+               font-size: 4em;
+               color:black;
+               margin-bottom: 20px;
+               font-weight: bold;
+            }
+            .tags p{
+               color:black;
+               margin-bottom: 28px;
+               font-size: 40px;
+               font-weight: bold;
+            }
+            .sai{
+               position:relative;
+               flex-shrink: 0;
+               margin-bottom: 120px;
+               margin-left: 700px;
+            }
+            .parent h1{
+               margin-left: 400px;
+               font-size: 3.5em;
+               width:1300px;
+            }
+            .main1 h1{
+               margin-left: 450px;
+               font-size: 3.5em;
+            }
+            .child h1{
+               margin-left: 250px;
+               font-size: 50px;
+               font-weight: bold;
+               width:1300px;   
+            }
+            .child p{
+               margin-left: 100px;
+               font-size: 35px;
+               font-weight: bold;
+               width:1300px;   
+            }
+            .card{
+                display:flex;
+                width:1250px;
+                border-radius: 12px;
+                overflow: hidden;
+                background: #fff;
+                box-shadow: 0px 0px 16px lightgrey;
+                margin:40px auto;
+                transition: transform 0.3s ease;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 80px;
+            }
+            .card:hover{
+                transform: translateY(-5px);
+            }
+            .card img{
+                width:550px;
+                height:700px;
+                display:block;
+            }
+            .content{
+                padding:20px;
+                width:50%;
+            }
+            .content h1{
+                margin:10px 0;
+                font-size: 60px;
+                font-weight: bold;
+                color:#333;
+            }
+            .price{
+                font-size: 50px;
+                font-weight: bold;
+                display:flex;
+                color:orange;
+                margin-right: 10px;
+            }
+            .price-btn h4{
+                font-size: 40px;
+                color:black;
+                margin-right: 100px;
+            }
+            .price-btn{
+                display:flex;
+                align-items: center;
+            }
+            .content p{
+                font-size: 40px;
+                color: black;
+                margin:8px 0 15px;
+            }
+            .contact{
+                display:flex;
+                width:1250px;
+                border-radius: 12px;
+                overflow: hidden;
+                background: #fff;
+                box-shadow: 0px 0px 16px lightgrey;
+                margin:40px auto;
+                transition: transform 0.3s ease;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 80px;
+            }
+            .contact:hover{
+                transform: translateY(-5px);
+            }
+            .contact img{
+                width:550px;
+                height:700px;
+                display:block;
+            }
+            .contact1{
+                padding:30px;
+                width:50%;
+            }
+            .contact1 h1{
+                margin:10px 0;
+                font-size: 60px;
+                font-weight: bold;
+                color:#333;
+            }
+            .contact3{
+                font-size: 50px;
+                font-weight: bold;
+                display:flex;
+                color:orange;
+                margin-right: 10px;
+            }
+            .contact2 h4{
+                font-size: 40px;
+                color:black;
+                margin-right: 100px;
+            }
+            .contact2{
+                display:flex;
+                align-items: center;
+            }
+            .contact1 p{
+                font-size: 40px;
+                color: black;
+                margin:8px 0 15px;
+            }
+            .post{
+                display:flex;
+                width:1250px;
+                border-radius: 12px;
+                overflow: hidden;
+                background: #fff;
+                box-shadow: 0px 0px 16px lightgrey;
+                margin:40px auto;
+                transition: transform 0.3s ease;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 80px;
+            }
+            .post:hover{
+                transform: translateY(-5px);
+            }
+            .post img{
+                width:550px;
+                height:700px;
+                display:block;
+            }
+            .post1{
+                padding:20px;
+                width:50%;
+            }
+            .post1 h1{
+                margin:10px 0;
+                font-size: 60px;
+                font-weight: bold;
+                color:#333;
+            }
+            .post3{
+                font-size: 50px;
+                font-weight: bold;
+                display:flex;
+                color:orange;
+                margin-right: 10px;
+            }
+            .post2 h4{
+                font-size: 40px;
+                color:black;
+                margin-right: 100px;
+            }
+            .post2{
+                display:flex;
+                align-items: center;
+            }
+            .post1 p{
+                font-size: 40px;
+                color: black;
+                margin:8px 0 15px;
+            }
+            .stats {
+                display: flex;
+                justify-content: space-around;
+                background-color: #f7a600;
+                padding: 20px;
+                margin-bottom: 180px;
+                width:1300px;
+                height:200px;
+            }
+            .stat {
+                text-align: center;
+                color: #fff; 
+            }
+            .stat1 {
+                text-align: center;
+                color: #fff; 
+            }
+            .stat2 {
+                text-align: center;
+                color: #fff; 
+            }
+            .stat3 {
+                text-align: center;
+                color: #fff; 
+            }
+            .stat-icon {
+                font-size: 30px;
+                margin-bottom: 10px;
+            }
+           .stat-number {
+                font-size: 40px;
+                font-weight: bold;
+            }
+           .stat-label {
+                font-size: 3em;
+            }
+           .stat>img{
+                width:70px;
+                height:40px;
+            }
+            .stat1>img{
+                width:70px;
+                height:40px;
+            }
+            .stat2>img{
+                width:70px;
+                height:40px;
+            }
+            .stat3>img{
+                width:70px;
+                height:40px;
+            }
+            .main{
+                display:flex;
+                gap:20px;
+                justify-content: center;
+                margin:20px;
+                margin-bottom: 200px;
+                flex-direction:column;
+                align-items: center;
+                width:1300px;
+            }
+            .parent1{
+                border:1px solid lightblue;
+                border-radius: 6px;
+                overflow: hidden;
+                text-align: center;
+                background: white;
+                box-shadow: 0 2px 6px lightgrey;
+                width:1300px;
+                height: 1500px;
+                margin-bottom: 150px;
+            }
+           .parent1 img{
+                /* width:1300px; */
+                height:1100px;
+                object-fit: cover;
+                /* flex:row; */
+            }
+            .parent1 h3{
+                margin:10px 0;
+                font-size: 3em;
+            }
+            .parent1 p{
+                font-size: 40px;
+                padding:0 10px;
+                color:grey;
+            }
+            .parent2{
+                background: orange;
+                color:white;
+                padding:8px;
+                font-weight: bold;
+                font-size: 50px;
+            }
+            .parent3{
+                margin:12px 0;
+                padding:8px 12px;
+                background: orange;
+                color:white;
+                text-decoration: none;
+                border-radius: 4px;
+                cursor: pointer;
+                font-size: 30px;
+                flex-direction: column;
+            }
+            .icon{
+                padding:8px 12px;
+                text-decoration: none;
+                cursor: pointer;
+                border-radius: 50%;
+            }
+            .icon:hover{
+                background: orange;
+            }
+            .parent3:hover{
+                background: grey;
+            }
+            .parent2:hover{
+                background: white;
+                color:black;
+            }
+            .contact-form {
+                background-color: #000;
+                color: #fff;
+                padding: 20px;
+                text-align: center;
+                width:1300px;
+            }
+            .contact-form h2 {
+                font-size: 35px;
+                margin-bottom: 20px;
+            }
+            .contact-form input, .contact-form textarea {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 10px;
+                background-color: transparent;
+                border: none;
+                border-bottom: 1px solid #fff;
+                color: #fff;
+                outline: none;
+            }
+            .contact-form textarea {
+                height: 60px;
+            }
+            .buttons {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                margin-top: 20px;
+            }
+            .send-btn {
+                border: 2px solid orange;
+                padding: 10px 20px;
+                background-color: transparent;
+                color: #fff;
+                cursor: pointer;
+            }
+            a.map-btn{
+                border: 2px solid orange;
+                padding: 10px 20px;
+                background-color: transparent;
+                color: #fff;
+                cursor: pointer;
+                text-decoration: none;
+                display: inline-block;
+            }
+            .send-btn:hover {
+                background: orange;
+            }
+            a.map-btn:hover{
+                background:orange ;
+            }
+            .contact-info {
+                margin-top: 20px;
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+            }
+           .social-icons {
+                margin-top: 20px;
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+            }
+            .copyright {
+                font-size: 12px;
+                margin-top: 20px;
+            }
+            .object{
+                display: flex;
+                align-items: flex-start;
+                padding: 50px;
+                margin-bottom:150px ;
+                width:1300px;
+            }
+            .profile-img img{
+                width:200px;
+                height: 200px;
+                object-fit: cover;
+                border-radius: 15px;
+                left: 160px;
+                top:-40px;
+                position: relative;
+            }
+            .para{ 
+                background: #fff;
+                border-radius: 12px;
+                box-shadow: 0 4px 16px rgb(0,0,0,0.7);
+                padding: 40px 35px 30px 35px;
+                width: 800px;
+            }
+            .para h2{
+                color:#374151;
+                margin-top: 0;
+                margin-bottom: 15px;
+                margin-left: 300px;
+                font-size: 2.5em;
+            }
+            .description{
+                font-size: 2em;
+                color:black;
+                /* margin-left:300px; */
+                font-weight: bold;
+            }
+            .quote{
+                font-size: 3rem;
+                color:orange;
+                text-align: left;
+                margin-left: 500px;
+            }
+            .underline{
+                border-bottom: 6px solid orange;
+                padding-bottom: 2px;
+            }
+        } 
+    </style>
+</head>
+<body>
+    <div class="view">
+        <header>
+            <a href="#">Home</a>
+            <a href="#">Models</a>
+            <a href="#">About</a>
+            <a href="#" class="box">OBerlo</a>
+            <a href="#">Price</a>
+            <a href="#">Blog</a>
+            <a href="#">Contact</a>
+        </header> 
+        <h1>New<br> Model Cars</h1>
+        <p>Consecutive adipiscing elit,sed do eiusmod incididunt<br> uolore magna aliqua.ut enim ad minim veniam ,quis non</p>
+        <div class="search-box">
+            <input type="text" placeholder="search here">
+            <button>&#10132;</button>
+        </div>
+        <button type="button" class="arrow" onclick="location.reload()"><</button>
+        <button type="button" class="arrow1" onclick="location.reload()">></button>
+    </div>
+    <div class="container">
+        <div class="sai">
+            <div class="circle top">
+                <img src="https://tse4.mm.bing.net/th/id/OIP.ORGOl_XpDbyhfwHP_GZPMAHaEK?pid=Api&P=0&h=220" alt="car1">
+            </div>
+            <div class="circle bottom">
+                <img src="https://tse1.mm.bing.net/th/id/OIP.gzQaj8IP8nYPDTXv8ZXXHwHaE8?pid=Api&P=0&h=220" alt="car2">
+            </div>
+        </div>
+        <div class="tags">
+            <h1><span class="underline">ABO</span>UT SHOROOM</h1>
+            <p>Consectetur adipiscing elit, sed do eiusmod tempor <br>incididunt ut labore et dolore magna aliqua.<br> Ut enim ad minim veniam, quis nostrud exercitation<br> consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim<br> ad minim veniam, quis nostrud exercitation</p>
+            <a href="#" class="parent3">Read more →</a>
+        </div>
+    </div>
+    <div class="parent">
+        <h1>OUR M<span class="underline">ODEL</span> CARS</h1> 
+    </div>
+    <div class="card">
+        <img src="https://themewagon.github.io/Oberlo/images/img-1.png" alt="car">
+        <div class="content">
+            <h1>01 New caralo car</h1>
+            <p>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+            <div class="price-btn">
+                <div class="price">price:</div>
+                <h4>$300,000,000</h4>
+                <a href="#" class="parent3">Read more →</a>
+            </div>
+        </div>
+    </div>
+    <div class="contact">
+        <div class="contact1">
+            <h1> 02 New caralo car</h1>
+            <p>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+            <div class="contact2">
+                <div class="contact3">price:</div>
+                <h4>$300,000,000</h4>
+                <a href="#" class="parent3">Read more →</a>
+            </div>
+        </div>
+        <img src="https://themewagon.github.io/Oberlo/images/img-2.png" alt="car">
+    </div>
+    <div class="post">
+        <img src="https://themewagon.github.io/Oberlo/images/img-3.png" alt="car">
+        <div class="post1">
+            <h1>03 New caralo car</h1>
+            <p>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+            <div class="post2">
+                <div class="post3">price:</div>
+                <h4>$300,000,000</h4>
+                <a href="#" class="parent3">Read more →</a>
+            </div>
+        </div>
+    </div>
+    <div class="stats">
+        <div class="stat">
+            <img src="https://themewagon.github.io/Oberlo/images/icon-1.png" alt="icon" class="stat-icon">
+            <div class="stat-number">3700</div>
+            <div class="stat-lebel">HAPPY CLIENTS</div>
+        </div>
+        <div class="stat1">
+            <img src="https://themewagon.github.io/Oberlo/images/icon-2.png" alt="icon" class="stat-icon">
+            <div class="stat-number">5700</div>
+            <div class="stat-lebel">VECHICLES INSTOCK</div>
+        </div>
+        <div class="stat2">
+            <img src="https://themewagon.github.io/Oberlo/images/icon-3.png" alt="icon" class="stat-icon">
+            <div class="stat-number">124</div>
+            <div class="stat-lebel">AWARDS</div>
+        </div>
+        <div class="stat3">
+            <img src="https://themewagon.github.io/Oberlo/images/icon-4.png" alt="icon" class="stat-icon">
+            <div class="stat-number">704</div>
+            <div class="stat-lebel">DEALER BRANCHES</div>
+        </div>
+    </div>
+    <div class="main1">
+        <h1>FEATUR<span class="underline">ED V</span>ECHILES</h1>
+    </div>
+    <div class="main">
+        <div class="parent1">
+            <img src="https://themewagon.github.io/Oberlo/images/img-4.png" alt="img">
+            <div class="parent2"> price $400000</div>
+            <h3>Voluptate</h3>
+            <p>Commodo consequat. Duis<br> aute irure dolor in<br> reprehenderit in voluptate<br> velit esse cillum</p>
+            <a href="#" class="parent3">Read more →</a>
+        </div>
+        <div class="parent1">
+            <img src="https://themewagon.github.io/Oberlo/images/img-6.png" alt="img">
+            <div class="parent2"> price $400000</div>
+            <h3>Voluptate</h3>
+            <p>Commodo consequat. Duis<br> aute irure dolor in<br> reprehenderit in voluptate<br> velit esse cillum</p>
+            <a href="#" class="parent3">Read more →</a>
+        </div>
+        <div class="parent1">
+            <img src="https://themewagon.github.io/Oberlo/images/img-5.png" alt="img">
+            <div class="parent2"> price $400000</div>
+            <h3>Voluptate</h3>
+            <p>Commodo consequat. Duis<br> aute irure dolor in<br> reprehenderit in voluptate<br> velit esse cillum</p>
+            <a href="#" class="parent3">Read more →</a>
+        </div>
+    </div>
+    <div class="child">
+        <h1>What Says Our Students</h1>
+        <p>It is a long established fact that a reader will be distracted by the readable </p>
+    </div>
+    <div class="object">
+      <div class="profile-img">
+        <img src="https://themewagon.github.io/Oberlo/images/client-img.png"alt="profile"></div>
+        <div class="para">
+            <h2>Denomark</h2>
+            <p class="description">DenoMarkanything embarrassing hidden in the middle of text. All the<br> Lorem Ipsum generators on the Internet tend to repeat <br>predefined chunks as necessary, making this the first true<br> generator on the Internetanything embarrassing hidden in<br> the middle of text. All the Lorem Ipsum generators on the<br> Internet tend to repeat predefined chunks as necessary,<br> making this the first true generator on the Internet</p>
+            <div class="quote">"</div>
+        </div>
+    </div>
+    <div class="contact-form">
+        <h2>GET IN TOUCH</h2>
+        <form>
+           <input type="text" placeholder="Name">
+           <input type="tel" placeholder="Phone Number">
+           <input type="email" placeholder="Email">
+           <textarea placeholder="Message"></textarea>
+           <div class="buttons">
+               <a class="map-btn" href="https://maps.app.goo.gl/E2nm9pBqrUNcLV7t6">MAP</a>
+               <button type="submit" class="send-btn">SEND NOW</button>
+            </div>
+        </form>
+        <div class="contact-info">
+            <div class="fa fa-phone"> (+71) 8522369417</div>
+            <div class="fa fa-envelope"> demo@gmail.com</div>
+        </div>
+        <div class="social-icons">
+           <a href="#" class="icon"><img src="https://i.pinimg.com/originals/f9/b1/1d/f9b11dc9cf3f213059b53602f67a32de.png" width="50" height="50"></a>
+           <a href="#" class="icon"><img src="https://tse1.mm.bing.net/th/id/OIP.aRjblcD1Z17jDl9vNEXapgHaHa?pid=Api" width="50" height="50"></a>
+           <a href="#" class="icon"><img src="https://freelogopng.com/images/all_img/1656996524linkedin-app-icon.png" width="50" height="50"></a>
+           <a href="#" class="icon"><img src="https://i.pinimg.com/originals/6a/39/8e/6a398e2bffd61024b7fa8c6eaf6a4e62.png" width="50" height="50"></a>
+        </div>
+        <p class="copyright">2020 All Rights Reserved. Design by Free Html Templates. Distributed by ThemeWagon</p>
+    </div>
+</body>
+</html>
+
